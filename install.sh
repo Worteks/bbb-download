@@ -12,7 +12,7 @@ fi
 apt-get install -y python
 
 # Install additional libs need to convertation process
-apt-get install -y curl libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 libva-x11-1 libva-drm1 libfdk-aac-dev
+apt install -y curl libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 libva-x11-2 libva-drm2 libfdk-aac-dev
 
 # Copy ffmpeg to /opt/ffmpeg folder
 mkdir -p /opt/ffmpeg
@@ -27,7 +27,7 @@ chmod 0755 /var/bigbluebutton/published/presentation
 
 # Create log directory
 mkdir -p /var/log/bigbluebutton/download
-chown tomcat7:tomcat7 /var/log/bigbluebutton/download
+chown bigbluebutton:bigbluebutton /var/log/bigbluebutton/download
 chmod -R go+rw /var/log/bigbluebutton/download/
 
 # Copy python scripts to post_publish directory

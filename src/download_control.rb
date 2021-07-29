@@ -20,13 +20,24 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 #
 
+require 'optparse'
 require "trollop"
 require File.expand_path('../../../lib/recordandplayback', __FILE__)
 
-opts = Trollop::options do
-  opt :meeting_id, "Meeting id to archive", :type => String
+meeting_id = nil
+OptionParser.new do |opts|
+  opts.on('-m', '--meeting-id MEETING_ID', 'Internal Meeting ID') do |v|
+    meeting_id = v
+  end
+  opts.on('-f', '--format FORMAT', 'Recording Format') do |v|
+  end
+end.parse!
+
+unless meeting_id
+  msg = 'Meeting ID was not provided'
+  puts(msg) && raise(msg)
 end
-meeting_id = opts[:meeting_id]
+
 
 logger = Logger.new("/var/log/bigbluebutton/post_publish.log", 'weekly' )
 logger.level = Logger::INFO
