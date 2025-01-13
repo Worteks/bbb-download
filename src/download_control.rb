@@ -21,7 +21,6 @@
 #
 
 require 'optparse'
-require "trollop"
 require File.expand_path('../../../lib/recordandplayback', __FILE__)
 
 meeting_id = nil
